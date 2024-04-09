@@ -74,7 +74,7 @@ public class Persona {
 		return calcularEdad()>=18;
 	}
 	
-	public void mostrarDatos() {
+	public void mostrarDato() {
 		System.out.println("\nNombre: " + nombre + "\nDNI: " + dni + "\nProvincia: " + provincia + "\nFecha de Nacimiento: " + fechaNacimiento);
 		if (mayorEdad()==true)
 			System.out.println("La persona es mayor de edad");

@@ -21,7 +21,7 @@ public class Main {
 		persona1.setFechaNacimiento(fechaNac);
 		persona1.setNombre(nombre);
 		persona1.setProvincia(provincia);
-		persona1.mostrarDatos();
+		persona1.mostrarDato();
 
 		dni = solicitarDNI();
 		nombre = solicitarNombre();
@@ -29,14 +29,15 @@ public class Main {
 		provincia = solicitarProvincia();
 
 		Persona persona2 = new Persona(dni, nombre, fechaNac, provincia);
-		persona2.mostrarDatos();
+		persona2.mostrarDato();
+
 
 		dni = solicitarDNI();
 		nombre = solicitarNombre();
 		fechaNac = solicitarFechNac();
 
 		Persona persona3 = new Persona(dni, nombre, fechaNac);
-		persona3.mostrarDatos();
+		persona3.mostrarDato();
 		sc.close();
 	}
 
