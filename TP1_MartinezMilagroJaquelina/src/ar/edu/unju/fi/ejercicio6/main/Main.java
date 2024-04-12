@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.ejercicio6.main;
 
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -42,26 +43,40 @@ public class Main {
 	}
 
 	public static Long solicitarDNI() {
-		System.out.println("\nIngrese el dni: ");
+		System.out.print("Ingrese el dni: ");
 		Long dni = sc.nextLong();
+		sc.nextLine();
 		return dni;
 	}
 
 	public static String solicitarNombre() {
-		System.out.println("Ingrese el nombre: ");
-		String nombre = sc.next();
+		System.out.print("Ingrese el nombre: ");
+		String nombre = sc.nextLine();
 		return nombre;
 	}
 
 	public static LocalDate solicitarFechNac() {
-		System.out.println("Ingrese la fecha en este formato 'yyyy-mm-dd': ");
-		LocalDate fechaNac = LocalDate.parse(sc.next());
+		boolean band;
+		LocalDate fechaNac=LocalDate.now();
+		do
+		{
+		    band=false;
+			try {
+				System.out.print("Ingrese la fecha en este formato 'yyyy-mm-dd': ");
+				fechaNac = LocalDate.parse(sc.next());
+				sc.nextLine();
+				band=true;
+			}catch (Exception e) {
+				System.out.println("\n ----- INVALIDO, TIENE QUE SEGUIR EL FORMATO 'yyyy-mm-dd' ----\n");
+			    sc.nextLine();
+			}
+		}while(!band);
 		return fechaNac;
 	}
 
 	public static String solicitarProvincia() {
-		System.out.println("Ingrese la provincia: ");
-		String provincia = sc.next();
+		System.out.print("Ingrese la provincia: ");
+		String provincia = sc.nextLine();
 		return provincia;
 	}
 }

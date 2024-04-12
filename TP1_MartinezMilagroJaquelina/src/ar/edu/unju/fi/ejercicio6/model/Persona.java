@@ -75,10 +75,11 @@ public class Persona {
 	}
 	
 	public void mostrarDato() {
-		System.out.println("\nNombre: " + nombre + "\nDNI: " + dni + "\nProvincia: " + provincia + "\nFecha de Nacimiento: " + fechaNacimiento);
+		System.out.println("\n ---- MOSTRANDO DATOS ------\n");
+		System.out.println("Nombre: " + nombre + "\nDNI: " + dni + "\nProvincia: " + provincia + "\nFecha de Nacimiento: " + fechaNacimiento);
 		if (mayorEdad()==true)
-			System.out.println("La persona es mayor de edad");
+			System.out.println("La persona es mayor de edad" + "\n----------------------------\n");
 		else 
-			System.out.println("La persona no es mayor de edad");
+			System.out.println("La persona no es mayor de edad" + "\n----------------------------\n");
 	}
 }
