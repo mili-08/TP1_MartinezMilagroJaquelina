@@ -23,7 +23,7 @@ public class Empleado {
 	}
 	
 	public void mostrarDatos() {
-		System.out.println("\nNombre del Empleado: " + nombre +"\nLegajo: " +legajo +  "\nSalario: $" + salario);
+		System.out.println("Nombre del Empleado: " + nombre +"\nLegajo: " +legajo +  "\nSalario: $" + salario);
 	}
    
 }
