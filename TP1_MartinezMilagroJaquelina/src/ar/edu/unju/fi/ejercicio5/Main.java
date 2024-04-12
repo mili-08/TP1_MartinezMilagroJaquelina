@@ -11,22 +11,25 @@ public class Main {
 		do
 		{
 			band=false;
-			System.out.println("\nIngrese un valor de 1 a 9: ");
+			System.out.print("Ingrese un valor de 1 a 9: ");
 		    if(sc.hasNextInt()) {
 		    	valor=sc.nextInt();
 		    	if(valor>=1 && valor<=9)
 		    	   band=true;
 		    	else {
-			    	System.out.println("Debe ser un valor de 1 a 9");
+			    	System.out.println("\n ---- INVALIDO, debe ser un valor entero entre 1 y 9  -----\n");
 			    	sc.nextLine();
 			    }   		
 		    }else {
-		    	System.out.println("Debe ser un valor de 1 a 9");
+		    	System.out.println("\n ---- INVALIDO, debe ser un valor entero entre 1 y 9  -----\n");
 		    	sc.nextLine();
 		    }
 		}while(!band);
+		System.out.println("\n----- TABLA DEL " + valor + " ------\n");
 		for(int a=0; a<=10; a++) 
 			System.out.println(valor + " x " + a + " = " + (valor*a));
+		
+		sc.close();
 	}
 
 }
