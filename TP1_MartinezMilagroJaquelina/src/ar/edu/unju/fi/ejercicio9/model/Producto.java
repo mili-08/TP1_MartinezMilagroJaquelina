@@ -13,7 +13,7 @@ public class Producto {
 	
 	@Override
 	public String toString() {
-		return "\nNombre: " + nombre + "\nCodigo: " + codigo + "\nPrecio: " + precio + "\nDescuento: " + descuento + "\n";
+		return "\nNombre: " + nombre + "\nCodigo: " + codigo + "\nPrecio: $" + precio + "\nDescuento: " + descuento + "%";
 	}
 
 
@@ -50,7 +50,7 @@ public class Producto {
 	}
 	
 	public Double calcularDescuento () {
-		return this.precio - this.descuento;
+		return this.precio - (this.precio * ((double)this.descuento/100));
 	}
 
 }
