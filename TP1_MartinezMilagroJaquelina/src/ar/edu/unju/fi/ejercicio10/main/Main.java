@@ -6,9 +6,10 @@ import ar.edu.unju.fi.ejercicio10.model.Pizza;
 
 public class Main {
 
+	public static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
-	  Scanner sc = new Scanner(System.in);
 	  int a=1;
+	  System.out.println("----- Ingreso de Pedido -----\n");
 	  while(a<=3)
 	  {
 	     Integer diametro = verificarDiametro();
@@ -21,6 +22,7 @@ public class Main {
 	     
 	     System.out.println("\n**** Pizza " + a + " ****\n");
 	     System.out.println(pizza.toString());
+	     System.out.println("\n**************************\n");
 	     a++;
 	  }
 	  sc.close();
@@ -28,23 +30,23 @@ public class Main {
 	}
 	
 	public static Integer verificarDiametro() {
-		Scanner sc = new Scanner(System.in);
 		boolean band;
 		Integer diametro=0;
 		do
 		{
 			band=false;
-			System.out.println("Ingrese el diametro de la pizza pequenia(20), mediana(30) y grande(40): ");
+			System.out.print("Ingrese el diametro de la pizza pequenia(20), mediana(30) y grande(40): ");
 			if(sc.hasNextInt()) {
 			    diametro = sc.nextInt();
+			    sc.nextLine();
 				if(diametro == 20 || diametro == 30 || diametro == 40) {
 					band=true;
 				}else {
-					System.out.println("INVALIDO!!, debe ser 20, 30 o 40\n");
+					System.out.println("\n--- INVALIDO!!, debe ser 20, 30 o 40 ---\n");
 					sc.nextLine();
 				}
 			}else {
-				System.out.println("INVALIDO!!, debe ser 20, 30 o 40\n");
+				System.out.println("\n--- INVALIDO!!, debe ser 20, 30 o 40 ---\n");
 				sc.nextLine();
 			}
 		}while(!band);	
@@ -52,19 +54,18 @@ public class Main {
 	}
 	
 	public static Boolean verificarIngEsp() {
-		Scanner sc = new Scanner(System.in);
 		Boolean band, aux=false;
 		do
 		{
 			band=false;
-			System.out.println("Si tiene ingredientes especiales escriba 'T' sino 'F'");
+			System.out.print("\nSi tiene ingredientes especiales escriba 'T' sino 'F': ");
 			String valor = sc.next();
 			if(valor.toUpperCase().equals("T") || valor.toUpperCase().equals("F")) {
 				band=true;
 			 aux=valor.toUpperCase().equals("T") ? true : false;	
 			}
 			else {
-				System.out.println("Por favor, escriba 'T' para ingredientes especiales y sino 'F'\n");
+				System.out.println("\n----- Por favor, escriba 'T' para ingredientes especiales y sino 'F' ------\n");
 			    sc.nextLine();
 			}
 		}while(!band);
