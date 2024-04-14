@@ -12,6 +12,7 @@ public class Main {
 		String[] vector = new String[5];
 		int [] ocupado = new int[1];
 		ocupado[0]=-1;
+		System.out.println("**** CARGA DE VALORES ****\n");
 		for(int a=0;a<vector.length;a++) {
 			System.out.print("Ingrese un nombre: ");
 			vector[a]=sc.nextLine();
@@ -27,32 +28,40 @@ public class Main {
     	
 	public static void mostrarValores(String[] vector, int[] ocupado) {
 		System.out.println("\n*** MOSTRANDO VALORES ***\n");
-		for(int a=0;a<=ocupado[0];a++)
-			System.out.println(vector[a]);
-		System.out.println("\nLa longitud del vector es: " + vector.length);
-		System.out.println("\nCantidad de valores cargados: " + (ocupado[0] + 1));
+		int a=0;
+	    while(a<=ocupado[0])
+	    {
+	    	System.out.println(vector[a]);
+	    	a++;
+	    }
+	    System.out.println("\nLa longitud del vector es: " + vector.length);
+		System.out.println("Cantidad de valores cargados: " + (ocupado[0] + 1));
+		System.out.println("\n****************************\n");
 	}
 	
-	public static int obtenerIndice(int longitudVector) {
+	public static int obtenerIndice(int ocupado) {
 		boolean band;
-		byte valor=0;
-		do
-		{
-			band=false;
-			try {
-				System.out.print("\nIngrese el numero del indice que desea eliminar: ");
-				valor = sc.nextByte();
-				sc.nextLine();	
-				if (valor<=longitudVector && valor>=0)
-					band=true;
-				else {
-					System.out.println("\nINVALIDO, INDICE INEXISTE DEBE SER MENOR O IGUAL A " + longitudVector + " Y MAYOR A 0 \n");
-				}
-			}catch (InputMismatchException e) {
-				System.out.println("\nINVALIDO");
-				sc.nextLine();	
-			}	
-		}while(!band);	
+		byte valor=-1;
+		if(ocupado!=-1) {
+			do
+			{
+				band=false;
+				try {
+					System.out.print("\nIngrese el numero del indice que desea eliminar: ");
+					valor = sc.nextByte();
+					sc.nextLine();	
+					if (valor<=ocupado && valor>=0)
+						band=true;
+					else {
+						System.out.println("\nINVALIDO, INDICE INEXISTE DEBE SER MENOR O IGUAL A " + ocupado + " Y MAYOR A 0 \n");
+					}
+				}catch (InputMismatchException e) {
+					System.out.println("\nINVALIDO");
+					sc.nextLine();	
+				}	
+			}while(!band);	
+		}else 
+			System.out.println("\n***** VECTOR VACIO *****");
 		return valor;
 	}
 	
