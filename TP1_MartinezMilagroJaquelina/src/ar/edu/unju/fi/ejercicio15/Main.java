@@ -50,14 +50,14 @@ public class Main {
 	
 	public static void mostrarValores(String[] vector) {
 		System.out.println("\n*** MOSTRANDO DATOS ***\n");
-		for(String valor: vector)
-		 System.out.println(valor);
+		for(int valor=0;valor<vector.length;valor++)
+		 System.out.println("vector[" + valor +"] = " + vector[valor]);
 	}
 	
 	public static void mostrarValoresInverso (String[] vector) {
 		System.out.println("\n*** MOSTRANDO DATOS INVERSAMENTE***\n");
 		for(int a=vector.length-1;a>=0;a--)
-			System.out.println(vector[a]);
+			System.out.println("vector[" + a +"] = "+vector[a]);
 	}
 
 }
