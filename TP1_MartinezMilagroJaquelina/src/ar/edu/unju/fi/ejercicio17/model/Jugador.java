@@ -4,6 +4,7 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Jugador {
@@ -129,19 +130,92 @@ public class Jugador {
 	public void cargarJugador() {
 		System.out.print("\nIngrese el nombre: ");
 		this.setNombre(sc.nextLine());
-		System.out.print("Ingrese el apellido:");
+		System.out.print("Ingrese el apellido: ");
 		this.setApellido(sc.nextLine());
 		this.setFechaNacimiento(verificarFecha());
-		System.out.print("Ingrese el nacionalidad:");
+		System.out.print("Ingrese el nacionalidad: ");
 		this.setNacionalidad(sc.next());
-		System.out.print("Ingrese la estatura: ");
-		this.setEstatura(sc.nextDouble());
-		sc.nextLine();
-		System.out.print("Ingrese el peso: ");
-		this.setPeso(sc.nextDouble());
-		sc.nextLine();
+		this.setEstatura(verificarDouble("la estatura: "));
+		this.setPeso(verificarDouble("el peso: "));
 		this.setPosicion(verificarPosicion());
 		sc.nextLine();
+	}
+	
+	public Double verificarDouble (String cadena) {
+		Double valor = 0.0;
+		boolean band;
+		do
+		{ 
+			band=false;
+			System.out.print("Ingrese" + cadena);
+			try {
+				valor=sc.nextDouble();
+				sc.nextLine();
+				band=true;
+			}catch (InputMismatchException e) {
+				System.out.println("\n----  Debe ser un valor decimal -----\n");
+				sc.nextLine();
+			}
+		}while(!band);
+		return valor;
+	}
+	
+	public String menuModificacion() {
+		String op="";
+		System.out.println("\n---- Menu ----\n");
+		System.out.println("1- Nombre");
+		System.out.println("2- Apellido");
+		System.out.println("3- Fecha de Nacimiento");
+		System.out.println("4- Nacionalidad");
+		System.out.println("5- Estatura");
+		System.out.println("6- Peso");
+		System.out.println("7- Posicion");
+		System.out.println("8- Volver");
+		System.out.print("\nElegir una opcion: ");
+		op=sc.next();
+		sc.nextLine();
+		return op;
+	}
+	
+	public void modificarJugador() {
+	    String op=menuModificacion();
+	    String cadena;
+	    switch (op) {
+		case "1": 
+			System.out.print("\nIngrese el nombre: ");
+			this.setNombre(sc.nextLine());
+			break;
+		case "2":
+			System.out.print("\nIngrese el Apellido: ");
+			this.setApellido(sc.nextLine());
+			break;
+		case "3": 
+			this.setFechaNacimiento(verificarFecha());
+			break;
+		case "4": 
+			System.out.print("\nIngrese el nacionalidad:");
+			this.setNacionalidad(sc.nextLine());
+			break;
+		case "5": 
+			cadena= " la estatura: ";
+			this.setEstatura(verificarDouble(cadena));
+			break;
+		case "6": 
+			cadena= " el peso: ";
+			this.setPeso(verificarDouble(cadena));
+			break;
+		case "7": 
+			this.setPosicion(verificarPosicion());
+			break;
+		case "8":
+			System.out.println("\nVolviendo al menu principal ........\n");
+			break;
+		default:
+			System.out.println("\nOpcion Invalida\n");
+		}
+	    
+		if(op=="1" || op=="2" || op=="3" || op=="4" || op=="5" || op=="6" || op=="7") 
+			System.out.println("\n---- Modificacion Exitosa ----\n");
 	}
 
 }
