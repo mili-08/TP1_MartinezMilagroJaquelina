@@ -27,7 +27,7 @@ public class Jugador {
 	@Override
 	public String toString() {
 		return "Nombre: " + nombre + "\nApellido: " + apellido + "\nFecha de Nacimiento: " + fechaNacimiento
-				+ "\nNacionalidad: " + nacionalidad + "\nEstatura: " + estatura + "\nPeso: " + peso + "\nPosicion: "
+				+ "\nEdad: "+ this.calcularEdad()+ " años\nNacionalidad: " + nacionalidad + "\nEstatura: " + estatura + "\nPeso: " + peso + "\nPosicion: "
 				+ posicion + "\n";
 	}
 

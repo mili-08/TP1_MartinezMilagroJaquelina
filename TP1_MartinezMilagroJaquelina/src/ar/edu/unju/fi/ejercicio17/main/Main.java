@@ -69,8 +69,9 @@ public class Main {
 		case "2": 
 			band=false;
 			if (!listaVacia()) {
-				System.out.println("===== DATOS DE USUARIOS =======\n");
+				System.out.println("\n===== DATOS DE USUARIOS =======\n");
 				ingresarNombreApellido();
+				System.out.println("\n");
 				for(int a=0;a<jugadores.size() && !band;a++){
 					if(jugadores.get(a).getNombre().equals(vector[0]) && jugadores.get(a).getApellido().equals(vector[1])) { 
 					   System.out.println(jugadores.get(a).toString());
@@ -88,7 +89,7 @@ public class Main {
 				ArrayList<Jugador> jugadoresOrdenados = new ArrayList<>(jugadores);
 				System.out.println("\n===== JUGADORES ORDENADOS POR APELLIDO =====\n");
 				jugadoresOrdenados.sort(Comparator.comparing(Jugador::getApellido));
-				jugadoresOrdenados.forEach(jug -> System.out.println(jug));
+				jugadoresOrdenados.forEach(jug -> System.out.println(jug + "\n-----------------------------------------"));
 				System.out.println("\n============================================\n");
 			}else 
 				System.out.println("\n----- NO HAY USUARIOS CARGADOS -----\n");
@@ -151,11 +152,12 @@ public class Main {
 				System.out.println("\n===== JUGADORES POR NACIONALIDAD =====\n");
 				System.out.print("Ingrese un nacionalidad: ");
 				cadena1=sc.next();
+				System.out.println("\n");
 				Iterator<Jugador> iteradorJugadores = jugadores.iterator();
 				while(iteradorJugadores.hasNext()) {
 					Jugador jug=iteradorJugadores.next();
 					if(jug.getNacionalidad().equals(cadena1)) {
-						System.out.println(jug.toString());
+						System.out.println(jug.toString() + "\n---------------------------------");
 						a++;
 					}
 				}
